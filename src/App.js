@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "./components/Navbar";
+import data from "./countriesAll.json";
 
 import "./App.css";
 
