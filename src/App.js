@@ -121,7 +121,7 @@ function App() {
     return (
       <div className={"country-card-container"}>
         <div
-          className={"country-card" + (isDarkMode ? "dark-cards" : "")}
+          className={isDarkMode ? "dark-cards" : "country-card"}
           onClick={handleCountryCardClick}
         >
           <div className="flag-img-container">
