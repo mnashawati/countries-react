@@ -2,6 +2,16 @@ body {
   background-color: rgba(255, 253, 253, 0.5);
 }
 
+.dark-mode {
+  background-color: #302d2d;
+  color: white;
+}
+
+.dark-cards {
+  background-color: #302d2d;
+  color: white;
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;

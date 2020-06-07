@@ -119,8 +119,11 @@ function App() {
       setClickedCountry(country);
     };
     return (
-      <div className="country-card-container">
-        <div className="country-card" onClick={handleCountryCardClick}>
+      <div className={"country-card-container"}>
+        <div
+          className={"country-card" + (isDarkMode ? "dark-cards" : "")}
+          onClick={handleCountryCardClick}
+        >
           <div className="flag-img-container">
             <img
               className="flag-img"
@@ -170,8 +173,14 @@ function App() {
     setCountriesToShow(filteredCountriesByRegion);
   };
 
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const handleModeSwitch = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
   return (
-    <div className="App">
+    <div className={!isDarkMode ? "App" : "dark-mode"}>
       <header>
         <input
           type="text"
@@ -186,6 +195,9 @@ function App() {
           <option>Europe</option>
           <option>Oceania</option>
         </select>
+        <div className="mode-switcher">
+          <p onClick={handleModeSwitch}>Dark Mode</p>
+        </div>
       </header>
       {!isCountryClicked ? (
         <div className="container">
