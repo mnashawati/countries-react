@@ -5,22 +5,18 @@ import allCountries from "./countriesAll.json";
 import "./App.css";
 
 function App() {
-  // const [selectedCountry, setSelectedCountry] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [countriesToShow, setCountriesToShow] = useState(allCountries);
 
   // useEffect(() => {
   //   fetch(`https://restcountries.eu/rest/v2/all`)
   //     .then((res) => res.json())
-  //     .then((data) => (allCountries = data));
+  //     .then((data) => {
+  //       setCountriesToShow(data);
+  //     });
   // }, []);
 
   const CountryCard = ({ country }) => {
-    // const [countryClicked, setCountryClicked] = useState(true);
-
-    // const handleCountryCardClick = (country) => {
-    //   const clickedCountry = [country];
-    //   setSelectedCountry(clickedCountry);
-    // };
-
     return (
       <div className="country-card-container" onClick={() => {}}>
         <div className="country-card">
@@ -116,14 +112,11 @@ function App() {
     );
   };
 
-  function countriesToDisplay(countries, searchTerm) {
+  function displayCountries(countries, searchTerm) {
     return countries.filter((country) =>
-      country.name.toUpperCase().includes(searchTerm.toUpperCase())
+      country.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
   }
-
-  const [searchTerm, setSearchTerm] = useState("");
-  const [countriesToShow, setCountriesToShow] = useState(allCountries);
 
   const handleSearch = (e) => {
     const searchInput = e.target.value;
@@ -161,7 +154,7 @@ function App() {
         </select>
       </header>
       <div className="container">
-        {countriesToDisplay(countriesToShow, searchTerm).map((country) => (
+        {displayCountries(countriesToShow, searchTerm).map((country) => (
           <CountryCard key={country.name} country={country} />
         ))}
       </div>
