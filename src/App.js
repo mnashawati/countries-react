@@ -123,10 +123,24 @@ function App() {
   }
 
   const [searchTerm, setSearchTerm] = useState("");
+  const [countriesToShow, setCountriesToShow] = useState(allCountries);
 
   const handleSearch = (e) => {
     const searchInput = e.target.value;
     setSearchTerm(searchInput);
+  };
+
+  const handleRegionSelector = (e) => {
+    const selectedRegion = e.target.value;
+
+    const filteredCountriesByRegion =
+      selectedRegion === "Filter By Region"
+        ? allCountries
+        : allCountries.filter((country) =>
+            country.region.includes(selectedRegion)
+          );
+
+    setCountriesToShow(filteredCountriesByRegion);
   };
 
   return (
@@ -137,9 +151,17 @@ function App() {
           placeholder="Search..."
           onChange={handleSearch}
         ></input>
+        <select onChange={handleRegionSelector}>
+          <option>Filter By Region</option>
+          <option>Africa</option>
+          <option>America</option>
+          <option>Asia</option>
+          <option>Europe</option>
+          <option>Oceania</option>
+        </select>
       </header>
       <div className="container">
-        {countriesToDisplay(allCountries, searchTerm).map((country) => (
+        {countriesToDisplay(countriesToShow, searchTerm).map((country) => (
           <CountryCard key={country.name} country={country} />
         ))}
       </div>
