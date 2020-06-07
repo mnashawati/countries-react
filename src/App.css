@@ -6,9 +6,20 @@ body {
   display: flex;
   flex-wrap: wrap;
 }
+
 .country-card-container {
   width: 33.3%;
 }
+
+.country-card:hover,
+.border-button:hover {
+  cursor: pointer;
+}
+
+.border-button {
+  margin: 5px;
+}
+
 .country-card {
   background: white;
   border: 1px;
