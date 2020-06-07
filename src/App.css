@@ -1,5 +1,6 @@
 body {
   background-color: rgba(255, 253, 253, 0.5);
+  box-sizing: border-box;
 }
 
 .dark-mode {
@@ -17,7 +18,9 @@ body {
 }
 
 .country-card:hover,
-.border-button:hover {
+.border-button:hover,
+.back-btn:hover,
+.mode-switch-btn:hover {
   cursor: pointer;
 }
 

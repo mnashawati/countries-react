@@ -195,8 +195,10 @@ function App() {
           <option>Europe</option>
           <option>Oceania</option>
         </select>
-        <div className="mode-switcher">
-          <p onClick={handleModeSwitch}>Dark Mode</p>
+        <div>
+          <button onClick={handleModeSwitch} className="mode-switch-btn">
+            Dark Mode
+          </button>
         </div>
       </header>
       {!isCountryClicked ? (
