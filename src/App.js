@@ -92,20 +92,22 @@ function App() {
               {separateLanguages(country.languages)}
             </p>
           </div>
-          <div className="border-countries-div">
-            <h4>Border Countries:</h4>
-            {country.borders.map((border) => (
-              <button
-                key={border}
-                className="border-button"
-                onClick={() => {
-                  setClickedCountry(getCountryByCode(allCountries, border));
-                }}
-              >
-                {getCountryByCode(allCountries, border).name}
-              </button>
-            ))}
-          </div>
+          {country.borders.length > 0 ? (
+            <div className="border-countries-div">
+              <h4>Border Countries:</h4>
+              {country.borders.map((border) => (
+                <button
+                  key={border}
+                  className="border-button"
+                  onClick={() => {
+                    setClickedCountry(getCountryByCode(allCountries, border));
+                  }}
+                >
+                  {getCountryByCode(allCountries, border).name}
+                </button>
+              ))}
+            </div>
+          ) : null}
         </div>
       </div>
     );
